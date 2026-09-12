@@ -1162,5 +1162,453 @@ root.render(/* @__PURE__ */ React.createElement(App, null));
   el.className = 'show';
 }
 </script>
+<style>
+/* =========================================================
+   보고PASS — Premium Corporate Theme
+   기능/데이터/React 로직은 변경하지 않고 UI만 덮어씌움
+   ========================================================= */
+
+:root {
+  --premium-navy: #172B4D;
+  --premium-navy-dark: #10213D;
+  --premium-blue: #2563EB;
+  --premium-blue-soft: #EFF6FF;
+
+  --premium-bg: #F6F8FB;
+  --premium-surface: #FFFFFF;
+  --premium-surface-soft: #F9FAFC;
+
+  --premium-text: #172033;
+  --premium-text-secondary: #667085;
+  --premium-text-muted: #98A2B3;
+
+  --premium-border: #E5EAF0;
+  --premium-border-dark: #D8DEE8;
+
+  --premium-green: #16A36A;
+  --premium-green-soft: #ECFDF5;
+
+  --premium-orange: #D97706;
+  --premium-orange-soft: #FFF7ED;
+
+  --premium-red: #DC3E4D;
+  --premium-red-soft: #FEF2F2;
+
+  --premium-shadow:
+    0 1px 2px rgba(16, 24, 40, .03),
+    0 4px 14px rgba(16, 24, 40, .04);
+
+  --premium-shadow-hover:
+    0 4px 18px rgba(16, 24, 40, .08);
+
+  --premium-radius: 14px;
+}
+
+
+/* =========================================================
+   전체 배경
+   ========================================================= */
+
+html,
+body {
+  background: var(--premium-bg) !important;
+  color: var(--premium-text) !important;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+
+/* =========================================================
+   기본 텍스트
+   ========================================================= */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--premium-text);
+  letter-spacing: -0.025em;
+}
+
+p,
+span,
+label {
+  color: inherit;
+}
+
+
+/* =========================================================
+   카드
+   ========================================================= */
+
+[class*="card"],
+[class*="Card"],
+.bg-white {
+  border-color: var(--premium-border) !important;
+}
+
+.shadow,
+.shadow-sm,
+.shadow-md,
+.shadow-lg {
+  box-shadow: var(--premium-shadow) !important;
+}
+
+
+/* =========================================================
+   입력창 / 검색창
+   ========================================================= */
+
+input,
+textarea,
+select {
+  background: #FFFFFF !important;
+  border: 1px solid var(--premium-border-dark) !important;
+  color: var(--premium-text) !important;
+  border-radius: 10px !important;
+  box-shadow: none !important;
+  transition:
+    border-color .15s ease,
+    box-shadow .15s ease,
+    background .15s ease;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #98A2B3 !important;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none !important;
+  border-color: #7EA6F8 !important;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, .10) !important;
+}
+
+
+/* =========================================================
+   버튼 기본
+   ========================================================= */
+
+button {
+  font-family: inherit;
+  transition:
+    background-color .15s ease,
+    border-color .15s ease,
+    color .15s ease,
+    box-shadow .15s ease,
+    transform .12s ease !important;
+}
+
+button:active {
+  transform: translateY(1px);
+}
+
+
+/* 주요 파란 버튼 */
+button.bg-blue-600,
+button.bg-blue-500,
+button.bg-indigo-600,
+button.bg-indigo-500,
+.bg-blue-600,
+.bg-blue-500 {
+  background: var(--premium-navy) !important;
+  border-color: var(--premium-navy) !important;
+  color: #FFFFFF !important;
+}
+
+button.bg-blue-600:hover,
+button.bg-blue-500:hover,
+button.bg-indigo-600:hover,
+button.bg-indigo-500:hover,
+.bg-blue-600:hover,
+.bg-blue-500:hover {
+  background: var(--premium-navy-dark) !important;
+}
+
+
+/* =========================================================
+   Tailwind 계열 색상 정리
+   강한 원색을 차분한 톤으로 통일
+   ========================================================= */
+
+/* Blue */
+.text-blue-600,
+.text-blue-500 {
+  color: var(--premium-blue) !important;
+}
+
+.bg-blue-50 {
+  background: var(--premium-blue-soft) !important;
+}
+
+.border-blue-200,
+.border-blue-300 {
+  border-color: #BFDBFE !important;
+}
+
+
+/* Green */
+.text-green-600,
+.text-green-500,
+.text-emerald-600,
+.text-emerald-500 {
+  color: var(--premium-green) !important;
+}
+
+.bg-green-50,
+.bg-emerald-50 {
+  background: var(--premium-green-soft) !important;
+}
+
+
+/* Orange / Amber */
+.text-orange-600,
+.text-orange-500,
+.text-amber-600,
+.text-amber-500 {
+  color: var(--premium-orange) !important;
+}
+
+.bg-orange-50,
+.bg-amber-50 {
+  background: var(--premium-orange-soft) !important;
+}
+
+
+/* Red */
+.text-red-600,
+.text-red-500 {
+  color: var(--premium-red) !important;
+}
+
+.bg-red-50 {
+  background: var(--premium-red-soft) !important;
+}
+
+
+/* Purple — 기존의 강한 보라를 차분한 네이비 계열로 */
+.text-purple-600,
+.text-purple-500,
+.text-violet-600,
+.text-violet-500 {
+  color: var(--premium-navy) !important;
+}
+
+.bg-purple-50,
+.bg-violet-50 {
+  background: #F3F6FA !important;
+}
+
+.bg-purple-600,
+.bg-purple-500,
+.bg-violet-600,
+.bg-violet-500 {
+  background: var(--premium-navy) !important;
+  color: #FFFFFF !important;
+}
+
+
+/* =========================================================
+   카드 hover
+   ========================================================= */
+
+[class*="hover\\:shadow"]:hover {
+  box-shadow: var(--premium-shadow-hover) !important;
+}
+
+[class*="hover\\:bg-blue"]:hover {
+  background: #F5F8FF !important;
+}
+
+
+/* =========================================================
+   조직도 노드
+   ========================================================= */
+
+[class*="rounded-lg"],
+[class*="rounded-xl"] {
+  transition:
+    box-shadow .15s ease,
+    border-color .15s ease,
+    background-color .15s ease;
+}
+
+
+/* 조직도에서 선택된 항목 */
+.ring-blue-500,
+.ring-blue-600 {
+  --tw-ring-color: rgba(37, 99, 235, .35) !important;
+}
+
+
+/* =========================================================
+   상태 Badge
+   ========================================================= */
+
+[class*="rounded-full"] {
+  letter-spacing: -0.01em;
+}
+
+
+/* 대기 */
+.bg-yellow-100,
+.bg-amber-100 {
+  background: #FFF7E8 !important;
+}
+
+.text-yellow-700,
+.text-amber-700 {
+  color: #B45309 !important;
+}
+
+
+/* 진행 */
+.bg-blue-100 {
+  background: #EFF6FF !important;
+}
+
+.text-blue-700 {
+  color: #1D4ED8 !important;
+}
+
+
+/* 완료 */
+.bg-green-100,
+.bg-emerald-100 {
+  background: #ECFDF5 !important;
+}
+
+.text-green-700,
+.text-emerald-700 {
+  color: #047857 !important;
+}
+
+
+/* =========================================================
+   구분선
+   ========================================================= */
+
+.border-gray-100,
+.border-gray-200,
+.border-gray-300 {
+  border-color: var(--premium-border) !important;
+}
+
+
+/* =========================================================
+   회색 텍스트
+   ========================================================= */
+
+.text-gray-400 {
+  color: #98A2B3 !important;
+}
+
+.text-gray-500 {
+  color: #667085 !important;
+}
+
+.text-gray-600 {
+  color: #475467 !important;
+}
+
+.text-gray-700 {
+  color: #344054 !important;
+}
+
+.text-gray-800,
+.text-gray-900 {
+  color: #172033 !important;
+}
+
+
+/* =========================================================
+   상단 영역
+   ========================================================= */
+
+header {
+  border-color: var(--premium-border) !important;
+}
+
+
+/* =========================================================
+   스크롤바
+   ========================================================= */
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #CBD3DF;
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #AEB8C7;
+}
+
+
+/* =========================================================
+   선택 영역
+   ========================================================= */
+
+::selection {
+  background: rgba(37, 99, 235, .15);
+  color: var(--premium-text);
+}
+
+
+/* =========================================================
+   모달
+   ========================================================= */
+
+.fixed.inset-0 {
+  backdrop-filter: blur(3px);
+}
+
+
+/* =========================================================
+   링크
+   ========================================================= */
+
+a {
+  transition: color .15s ease;
+}
+
+a:hover {
+  color: var(--premium-blue);
+}
+
+
+/* =========================================================
+   모바일
+   ========================================================= */
+
+@media (max-width: 640px) {
+
+  input,
+  textarea,
+  select {
+    border-radius: 9px !important;
+  }
+
+  button {
+    border-radius: 9px;
+  }
+}
+</style>
+
 </body>
 </html>
