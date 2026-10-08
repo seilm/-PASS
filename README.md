@@ -1,4 +1,4 @@
-# Lynn PASS (보고PASS)
+# Lynn PASS 
 
 > **구두보고의 대기와 시간을 관리하는 AI Queue System**
 > 보고자는 기다리지 않고, 결재자는 원하는 때에.
